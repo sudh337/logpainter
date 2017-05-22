@@ -6,10 +6,21 @@ from updateEntry import updateGeodata
 from fetchGeoData import *
 
 
-
 conn = sqlite3.connect('logPainter_v5.sqlite')
 cur = conn.cursor()
 gmaps = googlemaps.Client(geo_coding_api_key)
+
+cur.executescript('''
+
+       CREATE TABLE IF NOT EXISTS Geodata (
+        geo_id integer PRIMARY KEY AUTOINCREMENT,
+        formatted_address text,
+        pincode text,
+        fulldata blob,
+        location_id integer
+);
+
+''')
 
 cur.execute('SELECT COUNT(*) FROM Location')
 count = cur.fetchone()[0]

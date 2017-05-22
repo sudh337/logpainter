@@ -19,11 +19,11 @@ def getcoordinates(conn, cursor, loc_id):
 
 def getgeodata(gmaps, coordinates):
     #print "Waiting for 34.50 seconds so that google does't block us!"
-    for t in xrange(10, 0, -1):
-        time.sleep(1)
-        sys.stdout.write(str(t) + '..')
-        sys.stdout.flush()
-    time.sleep(0.50)
+    #for t in xrange(10, 0, -1):
+    #    time.sleep(1)
+    #    sys.stdout.write(str(t) + '..')
+    #    sys.stdout.flush()
+    time.sleep(1.00)
     # time.sleep(34.50)
     try:
         rev_data = gmaps.reverse_geocode(coordinates)
