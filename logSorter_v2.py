@@ -7,7 +7,7 @@ from updateEntry import *
 from dataFetch import *
 from lookup import *
 
-logFile = open('dlinkrouter.log', 'r')
+logFile = open('/var/log/remote-hosts/dlinkrouter/dlinkrouter.log.1', 'r')
 #
 conn = sqlite3.connect('logPainter_v5.sqlite')
 cur = conn.cursor()
