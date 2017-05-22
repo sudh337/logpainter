@@ -142,3 +142,16 @@ def updateIPadd(conn, cursor, ip, ts):
         conn.commit()
         print 'IPadd Table updated with ' + str(ip)
         return ip_id
+
+def updateGeodata(conn, cursor, formatted_address, pincode, fulldata, location_id):
+    cursor.execute('SELECT geo_id from Geodata where location_id=?',(location_id,))
+    try:
+        geo_id = cursor.fetchone()[0]
+        print "Location info already in database"
+        return geo_id
+    except TypeError:
+        cursor.execute('INSERT INTO Geodata(formatted_address, pincode, fulldata, location_id) VALUES(?, ?, ?, ?)',(formatted_address, pincode, fulldata, location_id))
+        geo_id = cursor.lastrowid
+        conn.commit()
+        print 'Geodata Table updated'
+        return geo_id
