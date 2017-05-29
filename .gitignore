@@ -1,1 +1,6 @@
+<<<<<<< HEAD
 *.pyc
+=======
+*.pyc
+credentials.*
+>>>>>>> 4831a11f3d3758fb21952c0751dde9da09478243
